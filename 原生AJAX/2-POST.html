@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .result {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>POST请求</button>
+    <div class="result"></div>
+
+    <script>
+        // 获取button元素
+        const btn = document.querySelector('button');
+        const result = document.querySelector('.result');
+        // 绑定事件
+        btn.onclick = function () {
+            // 创建对象
+            const xhr = new XMLHttpRequest();
+            // 初始化，设置请求方法和url
+            xhr.open('POST', 'http://127.0.0.1:9000/server');
+            // 设置请求头
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            // 发送请求
+            xhr.send();
+            // 事件绑定
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // 处理结果
+                    // 响应
+                    console.log(xhr.response);
+                    // 设置result的内容
+                    result.innerHTML = xhr.response;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
