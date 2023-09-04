@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.js"></script>
+</head>
+
+<body>
+    <h1>axios发送AJAX请求</h1>
+    <button>GET</button>
+    <button>POST</button>
+    <button>AJAX</button>
+    <script>
+        const btns = document.querySelectorAll('button')
+
+        // 配置URL
+        // axios.defaults.baseURL = 'http://127.0.0.1:9000'
+        btns[0].onclick = function () {
+            console.log('11');
+            // GET 请求
+            axios.get('http://127.0.0.1:9000/axios', {
+                // url参数
+                params: {
+                    a: 100,
+                    b: 200
+                },
+            })
+                .then(response => {
+                    // 处理响应结果
+                    console.log(response);
+                })
+                .catch(error => {
+                    // 处理错误
+                    console.error(error);
+                });
+        }
+
+        btns[1].onclick = function () {
+            console.log('11');
+            // GET 请求
+            axios.post('http://127.0.0.1:9000/axios', {
+                firstName: 'Fred',
+                lastName: 'Flintstone'
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+
+        btns[2].onclick = function () {
+            console.log('11');
+            axios({
+                // 请求方法
+                method: 'POST',
+                // url
+                url: 'http://127.0.0.1:9000/axios',
+                // url参数
+                params: {
+                    vip: 10,
+                    level: 5
+                },
+                // 请求头
+                headers: {
+                    a: 100,
+                    b: 100
+                },
+                // 请求体
+                data: {
+                    firstName: 'admin',
+                    lastName: '11111'
+                }
+
+            })
+        }
+    </script>
+</body>
+
+</html>
