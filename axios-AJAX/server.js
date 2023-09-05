@@ -55,7 +55,15 @@ app.all('/axios', (request, response) => {
     response.send(JSON.stringify(data));
 })
 
-
+// fetch服务
+app.all('/fetch', (request, response) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Headers', '*');
+    const data={
+        name:'李白'
+    }
+    response.send(JSON.stringify(data));
+})
 
 
 // 监听 9000 端口
