@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.6/axios.js"></script>
+</head>
+
+<body>
+    <button>GET请求</button>
+    <button>POST请求</button>
+
+    <script>
+        // GET-获取数据
+        const btns = document.querySelectorAll('button');
+        btns[0].onclick = async () => {
+            const result = await axios.request({
+                method: 'get',
+                url: 'http://localhost:3000/comments'
+            });
+            console.log(result);
+        }
+        POST-添加数据
+        btns[1].onclick = async () => {
+            const result = await axios.post('http://localhost:3000/comments', {
+                "body": "讨厌你哼！",
+            });
+            console.log(result);
+        }
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.6/axios.js"></script>
+</head>
+
+<body>
+    <button>GET请求</button>
+    <script>
+        // 默认配置
+        axios.defaults.method = 'get';
+        axios.defaults.baseURL = 'http://localhost:3000';
+        document.querySelector('button').onclick = async () => {
+            const result = await axios({
+                url:'/comments',
+            });
+            console.log(result);
+        }
+    </script>
+</body>
+
+</html>

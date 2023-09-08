@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.6/axios.js"></script>
+</head>
+
+<body>
+    <button>GET请求</button>
+    <button>POST请求</button>
+    <script>
+        const btns = document.querySelectorAll('button');
+
+        // 创建实例对象
+        const msg =  axios.create({
+            baseURL: 'https://v.api.aa1.cn/api',
+            timeout: 2000
+        });
+        // msg({
+        //     url:'/yiyan/index.php'
+        // }).then(res=>{
+        //     console.log(res);
+        // })
+        btns[0].onclick = async() => {
+            const res = await msg.get('/yiyan/index.php');
+            console.log(res);
+        }
+        
+    </script>
+</body>
+
+</html>
